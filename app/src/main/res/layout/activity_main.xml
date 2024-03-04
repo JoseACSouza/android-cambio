@@ -30,5 +30,26 @@
             android:gravity="center"
             android:layout_marginBottom="16dp"
             android:text="Conversor de Moedas"/>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/currency_selection_input_container"
+            android:layout_marginBottom="16dp"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:hint="Moeda"
+            app:hintEnabled="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <com.google.android.material.textfield.MaterialAutoCompleteTextView
+            android:id="@+id/currency_selection_input_layout"
+            android:inputType="none"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/load_currency_state"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:text="Carregando moedas..."/>
     </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
