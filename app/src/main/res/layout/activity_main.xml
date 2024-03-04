@@ -37,12 +37,13 @@
             android:hint="Moeda"
             app:hintEnabled="true"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-        <com.google.android.material.textfield.MaterialAutoCompleteTextView
-            android:id="@+id/currency_selection_input_layout"
-            android:inputType="none"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content">
+            <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                android:id="@+id/currency_selection_input_layout"
+                android:inputType="none"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/load_currency_state"
             android:layout_width="match_parent"
