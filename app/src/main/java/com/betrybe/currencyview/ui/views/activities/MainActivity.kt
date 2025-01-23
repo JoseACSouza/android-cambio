@@ -36,13 +36,11 @@ class MainActivity : AppCompatActivity() {
 
         this.updateCurrencySymbols()
     }
-
     private fun updateCurrencySymbols() {
         CoroutineScope(Dispatchers.IO).launch {
             try {
                 ApiIdlingResource.increment()
                 withContext(Dispatchers.Main) {
-                    startLoadingCurrencySymbols()
                     val response = api.getSymbols()
                     if (response.isSuccessful) {
                         val exchangeData = response.body() ?: return@withContext
@@ -50,7 +48,7 @@ class MainActivity : AppCompatActivity() {
                             android.R.layout.simple_dropdown_item_1line, exchangeData.symbols.keys.toList()
                         )
                         mAutoComplete.setAdapter(adapter)
-                        endLoadingCurrencySymbols()
+
                     }
                 }
                 ApiIdlingResource.decrement()
@@ -60,16 +58,4 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-
-    private fun startLoadingCurrencySymbols() {
-        mLoadState.visibility = View.GONE
-        mSelectState.visibility = View.VISIBLE
-    }
-
-    private fun endLoadingCurrencySymbols() {
-        mLoadState.visibility = View.GONE
-        mSelectState.visibility = View.VISIBLE
-    }
-
-
 }
